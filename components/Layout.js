@@ -2,9 +2,11 @@
 import { useState } from 'react'
 import styles from './layout.module.css'
 import Login from './Login'
+import Signup from './Signup'
 
 export default function Layout({ children }) {
 	const [showLogin, setShowLogin] = useState(false)
+	const [showSignup, setShowSignup] = useState(false)
 	return (
 		<>
 			<nav className={`${styles.navContainer} navbar`} role="navigation" >
@@ -43,6 +45,18 @@ export default function Layout({ children }) {
 				<Login 
 					showModal={showLogin}
 					closeModal={() => setShowLogin(false)}
+					openSignup={() => {
+						setShowLogin(false)
+						setShowSignup(true)
+					}}
+				/>
+				<Signup 
+					showModal={showSignup}
+					closeModal={() => setShowSignup(false)}
+					openLogin={() => {
+						setShowSignup(false)
+						setShowLogin(true)
+					}}
 				/>
 			</nav>
 			{children}

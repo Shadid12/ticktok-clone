@@ -1,6 +1,6 @@
 import styles from './login.module.css'
 
-export default function Login({ showModal = false, closeModal }) {
+export default function Login({ showModal = false, closeModal, openSignup }) {
 	return (
 		<div className={`modal ${showModal ? 'is-active' : ''}`}>
 			<div className="modal-background" onClick={() => closeModal()}></div>
@@ -27,6 +27,18 @@ export default function Login({ showModal = false, closeModal }) {
 
 							<button className="button is-light">
 								Login
+							</button>
+							<div className={styles.msg}>
+								Create an account to get started
+							</div>
+							<button 
+								className={`${styles.signupBtn} button is-light`}
+								onClick={e => {
+									e.preventDefault()
+									openSignup()
+								}}
+							>
+								Sign up
 							</button>
 						</form>
 					</div>

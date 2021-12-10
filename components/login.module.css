@@ -1,19 +1,29 @@
 .form {
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
 }
 
 .inputItem {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .shadowText {
-    padding: 10px;
-    transform: rotate(-2deg);
-    background-color: #07f;
-    color: #fff !important;
-    box-shadow: 5px 4px 0px 1px #090027;
-    border-radius: 8px;
-    text-shadow: -2px -2px 0 #161a2b, 2px -2px 0 #161a2b, -2px 2px 0 #161a2b,5px 5px 0 #161a2b;
+	padding: 10px;
+	transform: rotate(-2deg);
+	background-color: #07f;
+	color: #fff !important;
+	box-shadow: 5px 4px 0px 1px #090027;
+	border-radius: 8px;
+	text-shadow: -2px -2px 0 #161a2b, 2px -2px 0 #161a2b, -2px 2px 0 #161a2b,5px 5px 0 #161a2b;
+}
+
+.signupBtn {
+	margin-top: 10px;
+}
+
+.msg {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
 }
