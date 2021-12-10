@@ -1,0 +1,29 @@
+.loginBtn {
+    background-color: #fe2c55;
+    color: #fff;
+    font-weight: 700;
+}
+
+.search {
+    min-width: 300px;
+    display: flex;
+}
+
+.menuContainer {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+.navContainer {
+    border-bottom: 1px solid rgba(34,90,89,0.2);
+}
+
+.brandName {
+    font-weight: 900;
+    border: 1px solid;
+    padding: 5px;
+    box-shadow: 0 4px 0 0 #090027;
+    border-radius: 8px;
+    transform: rotate(-4deg);
+}
