@@ -1,11 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Feed from '../components/Feed'
 
 
 export default function Home() {
   return (
     <div className="container">
-      Hellow orlds
+      <Feed />
     </div>
   )
 }

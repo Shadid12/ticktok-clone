@@ -1,0 +1,62 @@
+.asideMenu {
+  padding: 20px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.navText {
+  font-weight: 900;
+}
+
+.feedWrap {
+  padding: 40px;
+  display: flex;
+  border-bottom: 0.5px solid rgba(22, 24, 35, 0.12);
+}
+
+.secCol {
+  flex: 1;
+  align-items: center;
+  padding: 10px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.username {
+  font-weight: 700;
+}
+
+.video {
+  height: 500px;
+    max-width: 350px;
+}
+
+.vidContainer {
+  display: flex;
+}
+
+.icons {
+  display: flex;
+  border: 1px salmon;
+  flex-direction: column;
+  justify-content: end;
+  padding-left: 20px;
+}
+
+.iconWrap {
+  padding: 5px;
+  background-color: rgba(22, 24, 35, 0.06);
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.videosContainer {
+  height: 95vh;
+  overflow-y: auto;
+}
