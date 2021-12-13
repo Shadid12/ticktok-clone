@@ -1,4 +1,5 @@
 
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import styles from './layout.module.css'
 import Login from './Login'
@@ -7,12 +8,13 @@ import Signup from './Signup'
 export default function Layout({ children }) {
 	const [showLogin, setShowLogin] = useState(false)
 	const [showSignup, setShowSignup] = useState(false)
+	const router = useRouter()
 	return (
 		<>
 			<nav className={`${styles.navContainer} navbar`} role="navigation" >
 				<div className="container">
 				<div className="navbar-brand">
-					<a className="navbar-item">
+					<a className="navbar-item" onClick={() => router.push('/')}>
 						<h1 className={styles.brandName}>Flick Tok</h1>
 					</a>
 				</div>
@@ -29,7 +31,7 @@ export default function Layout({ children }) {
 				<div className="navbar-end">
 					<div className="navbar-item">
 						<div className="buttons">
-							<a className="button is-light">
+							<a className="button is-light" onClick={() => router.push('/upload')}>
 								<strong>Upload</strong>
 							</a>
 							<a 

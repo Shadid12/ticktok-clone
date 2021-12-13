@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { Video } from 'cloudinary-react';
 
 export default function Upload() {
   const [file, setFile] = useState(null)
@@ -41,15 +40,6 @@ export default function Upload() {
       <div>
         <button onClick={uploadFile} className="button is-primary is-light">Sumbit</button>
       </div>
-      <Video
-        cloudName="shadid"
-        controls
-        publicId="povynr1oyrrdnshbrpqe"
-        autoPlay
-        width={300}
-        height={600}
-        loop
-      />
     </div>
   )
 }

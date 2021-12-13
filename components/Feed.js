@@ -77,9 +77,9 @@ function VideoCard() {
       </a>
       <a>#Life</a> <a>#Sup</a>
       <div className={styles.vidContainer}>
-        <video className={styles.video} controls>
+        <video className={styles.video} controls loop>
           <source
-            src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4" />
+            src="https://res.cloudinary.com/shadid/video/upload/v1639374221/qziqgxq0jkgbcrm9kzn8.mp4" type="video/mp4" />
         </video>
         <div className={styles.icons}>
           <div className={styles.iconWrap}>
