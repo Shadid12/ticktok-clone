@@ -11,3 +11,20 @@ type Post {
   tags: [String]
   author: User!
 }
+
+type Query {
+  findUserByEmail(email: String): User
+}
+
+type Mutation {
+  registerUser(name: String!, email: String!, password: String!): User @resolver(name: "RegisterUser")
+  login(email: String!, password: String!): Token @resolver(name: "LoginUser")
+}
+
+# Embeded type for returned token response
+type Token @embedded {
+  ttl: Time!
+  secret: String!
+  email: String!
+  userId: ID!
+}

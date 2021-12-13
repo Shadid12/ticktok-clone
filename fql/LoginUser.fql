@@ -1,0 +1,25 @@
+Query(
+  Lambda(
+    ["email", "password"],
+    Let(
+      {
+        credentials: Login(Match(Index("findUserByEmail"), Var("email")), {
+          password: Var("password"),
+          ttl: TimeAdd(Now(), 1800, "seconds")
+        })
+      },
+      {
+        secret: Select("secret", Var("credentials")),
+        ttl: Select("ttl", Var("credentials")),
+        email: Var("email"),
+        userId: Select(
+          ["id"],
+          Select(
+            0,
+            Paginate(Match(Index("findUserByEmail"), "test@email.com"))
+          )
+        )
+      }
+    )
+  )
+)
