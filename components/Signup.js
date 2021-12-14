@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useMutation, gql } from '@apollo/client'
 import Cookie from 'js-cookie'
-import styles from './login.module.css'
+import styles from '../styles/login.module.css'
 
 
 const SIGN_UP = gql`

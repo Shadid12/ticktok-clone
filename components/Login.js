@@ -1,7 +1,7 @@
 import { useEffect, useState  } from 'react'
 import { useMutation, gql } from '@apollo/client'
 import Cookie from 'js-cookie'
-import styles from './login.module.css'
+import styles from '../styles/login.module.css'
 
 
 const LOGIN = gql`
@@ -20,7 +20,7 @@ const LOGIN = gql`
 export default function Login({ showModal = false, closeModal, openSignup }) {
   const [loginFunc, { data, loading, error }] = useMutation(LOGIN)
 	const [state, setState] = useState(null)
-	
+
 	useEffect(() => {
 		if(data) {
       console.log(data)

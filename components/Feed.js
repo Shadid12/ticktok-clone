@@ -11,7 +11,7 @@ import {
 from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import styles from './feed.module.css'
+import styles from '../styles/feed.module.css'
 
 
 export default function Feed() {

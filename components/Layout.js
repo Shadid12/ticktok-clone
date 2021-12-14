@@ -2,7 +2,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import Cookie from 'js-cookie'
-import styles from './layout.module.css'
+import styles from '../styles/layout.module.css'
 import Login from './Login'
 import Signup from './Signup'
 
