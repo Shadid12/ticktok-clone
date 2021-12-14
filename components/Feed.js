@@ -1,3 +1,4 @@
+import { useQuery, gql } from '@apollo/client';
 import { 
   faHome, 
   faUserFriends, 
@@ -9,9 +10,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '../styles/feed.module.css'
 import VideoCard from './VideoCard';
 
+const GET_POSTS = gql`
+  {
+  listPosts {
+    data {
+      id
+      title
+      author {
+        _id
+        name
+      }
+      tags
+    }
+    after
+    before
+  }
+}
+`;
+
 
 export default function Feed() {
   const vids = Array.from(Array(10).keys());
+
+  const { loading, error, data } = useQuery(GET_POSTS);
+
+  console.log(data);
   return (
     <div className={styles.mainWrap}>
       <div className="columns">
@@ -51,7 +74,8 @@ export default function Feed() {
         </div>
         <div className="column is-two-thirds">
           <div className={styles.videosContainer}>
-          {vids.map(vid => <VideoCard key={vid} />)}
+          {loading && <p>Loading...</p>}
+          {data?.listPosts?.data && data.listPosts.data.map(vid => <VideoCard key={vid.id} videoItem={vid} />)}
           </div>
         </div>
       </div>

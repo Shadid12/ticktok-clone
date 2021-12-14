@@ -8,7 +8,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from '../styles/feed.module.css'
 
-export default function VideoCard() {
+export default function VideoCard({ videoItem }) {
 
   return (
     <div className={styles.feedWrap}>
@@ -19,14 +19,20 @@ export default function VideoCard() {
       </div>
       <div className={styles.secCol}>
         <a href="">
-          <h2 className={styles.username}>Username</h2>
+          <h2 className={styles.username}>{videoItem.author.name}</h2>
         </a>
-        <a>#Life</a> <a>#Sup</a>
+        {
+          videoItem.tags && videoItem.tags.map((tag) => (
+            <a key={tag}>#{tag} </a>
+          ))
+        }
         <div className={styles.vidContainer}>
 
           <video className={styles.video} controls loop>
             <source
-              src="https://res.cloudinary.com/shadid/video/upload/v1639374221/mn135zw2qcegozyyyzx5.mp4" 
+              src={`
+                https://res.cloudinary.com/shadid/video/upload/v1639374221/${videoItem.id}.mp4`
+              }
               type="video/mp4" 
             />
           </video>
