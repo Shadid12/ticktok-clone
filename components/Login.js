@@ -32,7 +32,7 @@ export default function Login({ showModal = false, closeModal, openSignup }) {
 			alert('Login Successful')
 			closeModal()
     }
-	} , [data, cookie])
+	} , [data])
 
 	const loginUser = async (e) => {
 		e.preventDefault()
