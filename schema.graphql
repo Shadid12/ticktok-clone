@@ -14,6 +14,7 @@ type Post {
 
 type Query {
   findUserByEmail(email: String): User
+  listPosts: [Post] @resolver(name: "ListPosts" paginated: true)
 }
 
 type Mutation {

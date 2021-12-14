@@ -1,0 +1,53 @@
+// Create a new index first
+
+
+CreateIndex({
+  name: "posts_by_ts",
+  source: Collection('Post'),
+  values: [
+    {
+      field: ["ts"],
+      reverse: true
+    },
+    {
+      field: ["ref"]
+    }
+  ]
+})
+
+Query(
+  Lambda(
+    ["size", "after", "before"],
+    Let(
+      {
+        match: Match(Index("posts_by_ts")),
+        page: If(
+          Equals(Var("before"), null),
+          If(
+            Equals(Var("after"), null),
+            Paginate(
+              Var("match"),
+              { size: Var("size") }
+            ),
+            Paginate(
+              Var("match"),
+              { size: Var("size"), after: Var("after") }
+            )
+          ),
+          Paginate(
+            Var("match"),
+            { size: Var("size"), before: Var("before") }
+          ),
+        )
+      },
+      Map(
+        Var("page"),
+        Lambda(
+          "values",
+          Get(Select(1, Var("values")))
+        )
+      )
+    )
+  )
+)
+  
