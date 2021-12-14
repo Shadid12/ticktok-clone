@@ -78,11 +78,23 @@ export default function Upload() {
   useEffect(() => { 
     if(data) { 
       alert('Video Uploaded!')
+      indexVideoData()
     }
     if(error) { 
       alert('Something went wrong')
     }
   }, [data, error])
+
+
+  const indexVideoData = async () => {
+    await fetch('/api/indexVideo', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data.createPost)
+    })
+  }
 
 
 
