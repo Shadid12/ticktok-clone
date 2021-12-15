@@ -6,6 +6,7 @@ import {
 } 
 from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react';
 
 import styles from '../styles/feed.module.css'
 import VideoCard from './VideoCard';
@@ -30,11 +31,14 @@ const GET_POSTS = gql`
 
 
 export default function Feed() {
-  const vids = Array.from(Array(10).keys());
-
+  const [searchTerm, setSearchTerm] = useState('');
   const { loading, error, data } = useQuery(GET_POSTS);
 
-  console.log(data);
+  const searchVideos = () => {
+    console.log('searching for videos');
+    fetch(`/api/searchVideo?searchTerm=${searchTerm}`)
+  }
+
   return (
     <div className={styles.mainWrap}>
       <div className="columns">
@@ -49,26 +53,24 @@ export default function Feed() {
                   <span className={styles.navText}>For You</span>
                 </a>
               </li>
-              <li>
-                <a>
-                  <span className={styles.icon}>
-                    <FontAwesomeIcon icon={faUserFriends} size='2x'/>
-                  </span>
-                  <span className={styles.navText}>
-                    Following
-                  </span>
-                </a>
-              </li>
-              <li>
-              <a>
-                  <span className={styles.icon}>
-                    <FontAwesomeIcon icon={faVideo} size='2x'/>
-                  </span>
-                  <span className={styles.navText}>
-                    Live
-                  </span>
-                </a>
-              </li>
+              
+              <div className={`${styles.menuContainer} navbar-menu`}>
+                <div className={`${styles.search} navbar-item`}>
+                  <input 
+                    className="input is-rounded ds-input" 
+                    type="text" 
+                    placeholder="Search videos" 
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />	
+                  <button 
+                    className={styles.searchbtn}
+                    onClick={searchVideos}
+                  >
+                    Search
+                  </button>					
+                </div>
+              </div>
+              
             </ul>
           </aside>
         </div>

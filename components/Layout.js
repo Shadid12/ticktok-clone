@@ -35,15 +35,6 @@ export default function Layout({ children }) {
 					</a>
 				</div>
 
-					<div className={`${styles.menuContainer} navbar-menu`}>
-						<div className={`${styles.search} navbar-item`}>
-							<input 
-								className="input is-rounded ds-input" 
-								type="text" 
-								placeholder="Search accounts and videos" />						
-						</div>
-					</div>
-
 				<div className="navbar-end">
 					<div className="navbar-item">
 						<div className="buttons">
